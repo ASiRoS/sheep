@@ -40,6 +40,11 @@ class CounterService
     public function makeSheep(): void
     {
         $counter = Counter::last();
+
+        if(!$counter) {
+            return;
+        }
+
         $cages = Cage::all();
 
         $this->emptyAndFillCages();

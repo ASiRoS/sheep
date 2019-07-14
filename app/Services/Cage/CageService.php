@@ -102,7 +102,7 @@ class CageService
      *
      * @return Cage[]
      */
-    private function getLonelyCages(Collection $cages): array
+    public function getLonelyCages(Collection $cages): array
     {
         $lonelyCages = [];
 
@@ -120,7 +120,7 @@ class CageService
      *
      * @return Cage $cage
      */
-    private function getBiggestCage(Collection $cages)
+    public function getBiggestCage(Collection $cages)
     {
         $biggestCountCage = null;
 
@@ -139,5 +139,19 @@ class CageService
     public function killAllSheep()
     {
         Sheep::truncate();
+    }
+
+    public function getAllSheepCount()
+    {
+        return Sheep::count();
+    }
+
+    public function create(int $count = 4): void
+    {
+        for($i = 0; $i < $count; $i++) {
+            $cage = new Cage();
+            $cage->name = "Загон #$i";
+            $cage->save();
+        }
     }
 }

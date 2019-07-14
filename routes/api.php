@@ -18,11 +18,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['namespace' => 'Api'], function() {
-    Route::group(['prefix' => 'cage', 'name' => 'cage.'], function() {
+    Route::group(['prefix' => 'cage', 'as' => 'cage.'], function() {
         Route::post('slaughter', 'CageController@slaughter')->name('slaughter');
     });
 
-    Route::group(['prefix' => 'counter', 'name' => 'counter.'], function() {
+    Route::group(['prefix' => 'counter', 'as' => 'counter.'], function() {
         Route::post('stop', 'CounterController@start')->name('start');
+    });
+
+    Route::group(['prefix' => 'report', 'as' => 'report.'], function() {
+        Route::get('generate', 'ReportController@generate')->name('generate');
     });
 });

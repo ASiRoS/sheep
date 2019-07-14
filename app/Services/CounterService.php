@@ -47,7 +47,14 @@ class CounterService
 
         $cages = Cage::all();
 
+        if($cages->isEmpty()) {
+            $this->cage->create();
+        }
+
+        $cages = Cage::all();
+
         $this->emptyAndFillCages();
+
 
         /**
          * Sheep to be born, is the same to the count, to born.

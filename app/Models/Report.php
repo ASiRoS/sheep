@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $general_sheep_count
  * @property int $killed_sheep_count
  * @property int $alive_sheep_count
+ * @property int $biggest_cage_id
  * @property Cage $biggest_cage
  */
 class Report extends Model

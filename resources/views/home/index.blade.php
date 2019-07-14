@@ -23,6 +23,10 @@
     <div class="form-group">
         <button class="btn btn-primary" id="js-start">Start counter</button>
     </div>
+    
+    <div class="form-group">
+        <a class="btn btn-primary" href="{{ route('report.generate') }}">Get report</a>
+    </div>
 @stop
 
 @section('scripts')
@@ -33,7 +37,7 @@
 
         $('#js-slaughter').on('click', function () {
             $.ajax({
-                'url': '{{ route('slaughter') }}',
+                'url': '{{ route('cage.slaughter') }}',
                 'method': 'POST',
                 'data': {
                     'count': getSheepCount()
@@ -47,7 +51,7 @@
 
         $('#js-start').on('click', function () {
             $.ajax({
-                'url': '{{ route('start') }}',
+                'url': '{{ route('counter.start') }}',
                 'method': 'POST'
             });
         });

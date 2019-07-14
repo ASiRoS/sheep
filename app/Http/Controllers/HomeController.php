@@ -15,6 +15,7 @@ class HomeController
 
         $cages = Cage::all();
 
+
         return view('home.index', compact('cages'));
     }
 }

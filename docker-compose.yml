@@ -12,8 +12,6 @@ services:
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
       - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
       - vendor:/var/www/vendor
-    command:
-      "php-fpm"
     environment:
       PHP_IDE_CONFIG: "serverName=sheep"
 
@@ -27,7 +25,7 @@ services:
       - ./:/var/www
       - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
 
-  db_mysql:
+  mysql:
     image: mysql:5.7.22
     restart: unless-stopped
     ports:

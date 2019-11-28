@@ -12,6 +12,8 @@ services:
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
       - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
       - vendor:/var/www/vendor
+    command:
+      - "./docker/php/start.sh"
     environment:
       PHP_IDE_CONFIG: "serverName=sheep"
 
